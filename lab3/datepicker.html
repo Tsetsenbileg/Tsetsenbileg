@@ -13,7 +13,16 @@
     <script type="text/javascript" src="DatePicker.js"></script>
     <script type="text/javascript">
       // <![CDATA[
-      datePicker1 = new DatePicker("datepicker1", function (id, fixedDate) {
+      datepicker1 = new DatePicker("datepicker1",function (id, fixedDate) {
+        console.log(
+          "DatePicker with id", 
+          id,
+          "selected date:",
+          fixedDate.month + "/" + fixedDate.day + "/" + fixedDate.year
+        );
+      });
+      datepicker1.render(new Date());
+      datepicker2 = new DatePicker("datepicker2", function (id, fixedDate) {
         console.log(
           "DatePicker with id",
           id,
@@ -21,16 +30,7 @@
           fixedDate.month + "/" + fixedDate.day + "/" + fixedDate.year
         );
       });
-      datePicker1.render(new Date());
-      datePicker2 = new DatePicker("datepicker2", function (id, fixedDate) {
-        console.log(
-          "DatePicker with id",
-          id,
-          "selected date:",
-          fixedDate.month + "/" + fixedDate.day + "/" + fixedDate.year
-        );
-      });
-      datePicker2.render(new Date("1/1/2009"));
+      datepicker2.render(new Date("1/1/2009"));
       // ]]>
     </script>
   </body>

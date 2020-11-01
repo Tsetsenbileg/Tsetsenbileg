@@ -5,6 +5,7 @@ class Cs142TemplateProcessor {
   mf() {
     let rx = /{{[a-zA-Z]*}}/g;
     let arr = this.template.match(rx);
+    console.log(arr);
     arr = arr.map((el) => el.slice(2, el.length - 2));
     return arr;
   }
