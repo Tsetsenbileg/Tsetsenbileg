@@ -10,3 +10,18 @@
   margin-left: auto;
   margin-right: auto;
 }
+.link {
+  display: flex;
+}
+.link a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin: 10px;
+  height: 30px;
+  padding: 10px;
+  background-color: #cae2ec;
+  border-radius: 3px;
+}

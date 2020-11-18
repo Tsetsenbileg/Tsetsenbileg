@@ -1,5 +1,5 @@
-import React from 'react';
-import './States.css';
+import React from "react";
+import "./States.css";
 
 /**
  * Define States, a React componment of CS142 project #4 problem #2.  The model
@@ -9,13 +9,53 @@ import './States.css';
 class States extends React.Component {
   constructor(props) {
     super(props);
-    console.log('window.cs142models.statesModel()', window.cs142models.statesModel());
+    console.log(
+      "window.cs142models.statesModel()",
+      window.cs142models.statesModel()
+    );
+    this.state = {
+      array: window.cs142models.statesModel(),
+      inputValue: "",
+      flag: true,
+    };
+    this.handleChangeBound = (event) => this.handleChange(event);
   }
-
+  handleChange(event) {
+    this.setState({ inputValue: event.target.value });
+    for (let i = 0; i < this.state.array.length; i++) {
+      if (
+        this.state.array[i]
+          .toUpperCase()
+          .includes(this.state.inputValue.toUpperCase())
+      ) {
+        this.state.flag = true;
+        break;
+      } else {
+        this.state.flag = false;
+      }
+    }
+  }
   render() {
     return (
-      <div>
-        Replace this with the code for CS142 Project #4, Problem #2
+      <div className="cont">
+        <div className="inCont">
+          <input
+            id="inId"
+            type="text"
+            onChange={this.handleChangeBound}
+            placeholder="Search your state..."
+          />
+        </div>
+        <div className="country">
+          {this.state.array.map((el) =>
+            el.toUpperCase().includes(this.state.inputValue.toUpperCase()) ? (
+              <div>{el}</div>
+            ) : (
+              ""
+            )
+          )}
+          {!this.state.flag ? "Baihgui." : " "}
+        </div>
       </div>
     );
   }

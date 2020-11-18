@@ -1,0 +1,23 @@
+.container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.con {
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50px;
+  top: 100px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #cae2ec;
+  cursor: pointer;
+}

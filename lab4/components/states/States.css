@@ -1,6 +1,56 @@
 /*
 CSS for the CS142 project #4 Problem #2 states component
-
 Since CSS uses a global name space for classes we should use names starting with
 cs142-states- here.
 */
+* {
+  box-sizing: border-box;
+}
+.country {
+  /* display: grid; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* grid-template-columns: repeat(6, 1fr); */
+  margin: 0 auto;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* column-gap: 10px; */
+}
+/* .country div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+.inCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#inId {
+  width: 400px;
+  height: 50px;
+  border: none;
+  background-color: #90e0e8;
+  outline: none;
+  padding-top: 20px;
+  padding-left: 10px;
+  font-size: 20px;
+  opacity: 0.5;
+  margin: 20px;
+  border-radius: 3px;
+}
+.country div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  margin: 20px;
+  background-color: #cae2ec;
+  border-radius: 5px;
+  border: 3px solid #90e0e8;
+}
