@@ -3,7 +3,7 @@ import { Typography, Divider } from "@material-ui/core";
 import "./userPhotos.css";
 import { Link } from "react-router-dom";
 import fetchModel from "../../lib/fetchModelData";
-
+import axios from "axios";
 /**
  * Define UserPhotos, a React componment of CS142 project #5
  */
@@ -47,18 +47,13 @@ const Card = (props) => {
       </div>
     </div>
   );
-  // return <div>Hello its card</div>;
 };
 class UserPhotos extends React.Component {
   constructor(props) {
     super(props);
-    // Problem 1
-    // let photos = window.cs142models.photoOfUserModel(
-    //   this.props.match.params.userId
-    // );
-    fetchModel("/PhotosOfUser/" + this.props.match.params.userId).then((res) =>
-      this.setState({ photos: res.data })
-    );
+    axios
+      .get("/PhotosOfUser/" + this.props.match.params.userId)
+      .then((res) => this.setState({ photos: res.data }));
     this.state = {
       photos: [],
     };

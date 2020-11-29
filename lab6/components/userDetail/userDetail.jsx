@@ -3,6 +3,7 @@ import { Typography, Button } from "@material-ui/core";
 import "./userDetail.css";
 import { Link } from "react-router-dom";
 import fetchModel from "../../lib/fetchModelData";
+import axios from "axios";
 /**
  * Define UserDetail, a React componment of CS142 project #5
  */
@@ -10,29 +11,24 @@ import fetchModel from "../../lib/fetchModelData";
 class UserDetail extends React.Component {
   constructor(props) {
     super(props);
-    // Problem 1
-    // let userDetail = window.cs142models.userModel(
-    //   this.props.match.params.userId
-    // );
-    fetchModel("/user/" + this.props.match.params.userId).then((res) =>
-      this.setState({ userDetail: res.data })
-    );
+
     this.state = {
       userId: this.props.match.params.userId,
       userDetail: [],
     };
+    axios
+      .get("/user/" + this.props.match.params.userId)
+      .then((res) => this.setState({ userDetail: res.data }));
   }
   componentDidUpdate(prevProps) {
     let prevId = prevProps.match.params.userId;
     let currId = this.props.match.params.userId;
     if (prevId !== currId) {
       this.state.userId = currId;
-      // Problem 1
-      // let userDetail1 = window.cs142models.userModel(currId);
-      // this.setState({ userDetail: userDetail1 });
-      fetchModel("user/" + this.state.userId).then((res) =>
-        this.setState({ userDetail: res.data })
-      );
+
+      axios
+        .get("/user/" + this.state.userId)
+        .then((res) => this.setState({ userDetail: res.data }));
     }
   }
   render() {

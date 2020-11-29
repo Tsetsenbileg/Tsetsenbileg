@@ -10,26 +10,21 @@ import {
 import "./userList.css";
 import { Link } from "react-router-dom";
 import fetchModel from "../../lib/fetchModelData";
+import axios from "axios";
 /**
  * Define UserList, a React componment of CS142 project #5
  */
 class UserList extends React.Component {
   constructor(props) {
     super(props);
-    // Problem 1
-    // this.state = {
-    //   userListModel: window.cs142models.userListModel(),
-    // };
-    //Problem 2
     this.state = {
       userListModel: [],
     };
-    // console.log(this.state.userListModel);
   }
   componentDidMount() {
-    fetchModel("/user/list").then((res) =>
-      this.setState({ userListModel: res.data })
-    );
+    axios
+      .get("/user/list")
+      .then((res) => this.setState({ userListModel: res.data }));
   }
   render() {
     return (
