@@ -1,0 +1,21 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+  background-color: blue;
+  padding: 0 50px 0 50px;
+}
+.menu {
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.menu a {
+  text-decoration: none;
+}
